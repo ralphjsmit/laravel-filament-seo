@@ -3,6 +3,7 @@
 namespace RalphJSmit\Filament\SEO\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 use RalphJSmit\Filament\SEO\FilamentSEOServiceProvider;
 
@@ -13,7 +14,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'RalphJSmit\\FilamentSEO\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'RalphJSmit\\FilamentSEO\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
         );
     }
 
@@ -21,13 +22,14 @@ class TestCase extends Orchestra
     {
         return [
             FilamentSEOServiceProvider::class,
+            LivewireServiceProvider::class,
+            FilamentSEOServiceProvider::class,
         ];
     }
 
     public function getEnvironmentSetUp($app)
     {
         config()->set('database.default', 'testing');
-
         /*
         $migration = include __DIR__.'/../database/migrations/create_laravel-filament-seo_table.php.stub';
         $migration->up();

@@ -1,84 +1,33 @@
-# A package to combine the power of Laravel SEO and Filament Admin.
+# Combine the power of Laravel SEO and Filament Admin & Filament Forms.
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/ralphjsmit/laravel-filament-seo.svg?style=flat-square)](https://packagist.org/packages/ralphjsmit/laravel-filament-seo)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/ralphjsmit/laravel-filament-seo/run-tests?label=tests)](https://github.com/ralphjsmit/laravel-filament-seo/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/ralphjsmit/laravel-filament-seo/Check%20&%20fix%20styling?label=code%20style)](https://github.com/ralphjsmit/laravel-filament-seo/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/ralphjsmit/laravel-filament-seo.svg?style=flat-square)](https://packagist.org/packages/ralphjsmit/laravel-filament-seo)
+This package is a nice helper for using the [laravel-seo](https://github.com/ralphjsmit/laravel-seo) package with [Filament Admin and Filament Forms](https://filamentphp.com).
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+It provides a simple component that returns an array with the fields to modify the `title`, `author` and `description` fields of the SEO model. It automatically takes care of getting and saving all the data to the `seo()` relationship, and you can thus use it anywhere.
 
-## Support us
+```php
+use Filament\Resources\Form;
+use RalphJSmit\Filament\SEO\SEO;
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-filament-seo.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-filament-seo)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+public static function form(Form $form): Form
+{
+    return $form->schema([
+        ...SEO::make(),
+       // .. Your other fields
+    ]);
+}
+```
 
 ## Installation
 
-You can install the package via composer:
+First, install the packages:
 
-```bash
+```shell
 composer require ralphjsmit/laravel-filament-seo
 ```
 
-You can publish and run the migrations with:
+This will the require the `ralphjsmit/laravel-seo` as well if you didn't have that installed.
 
-```bash
-php artisan vendor:publish --tag="laravel-filament-seo-migrations"
-php artisan migrate
-```
+Now this helper is available to use anywhere you want:
 
-You can publish the config file with:
 
-```bash
-php artisan vendor:publish --tag="laravel-filament-seo-config"
-```
 
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="laravel-filament-seo-views"
-```
-
-## Usage
-
-```php
-$filamentSEO = new RalphJSmit\FilamentSEO();
-echo $filamentSEO->echoPhrase('Hello, RalphJSmit!');
-```
-
-## Testing
-
-```bash
-composer test
-```
-
-## Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
-## Contributing
-
-Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
-
-## Credits
-
-- [Ralph J. Smit](https://github.com/ralphjsmit)
-- [All Contributors](../../contributors)
-
-## License
-
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.

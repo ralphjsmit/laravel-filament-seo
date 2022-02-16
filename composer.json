@@ -36,9 +36,12 @@
         }
     },
     "autoload-dev": {
-        "psr-4": {
+        "psr-4": {t
             "RalphJSmit\\Filament\\SEO\\Tests\\": "tests"
-        }
+        },
+        "files": [
+            "src/Support/helpers.php"
+        ]
     },
     "scripts": {
         "test": "vendor/bin/pest",
