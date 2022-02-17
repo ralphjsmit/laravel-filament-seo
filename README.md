@@ -1,8 +1,10 @@
-# Combine the power of Laravel SEO and Filament Admin & Filament Forms.
+![laravel-filament-seo](https://github.com/ralphjsmit/laravel-filament-seo/blob/main/docs/images/laravel-filament-seo.jpg)
 
-This package is a nice helper for using the [laravel-seo](https://github.com/ralphjsmit/laravel-seo) package with [Filament Admin and Filament Forms](https://filamentphp.com).
+# Combine the power of Laravel SEO and Filament PHP.
 
-It provides a simple component that returns a Filament fieldgroup to modify the `title`, `author` and `description` fields of the SEO model. It automatically takes care of getting and saving all the data to the `seo()` relationship, and you can thus use it anywhere, without additional configuration!
+This package is a **convenient helper for using the [laravel-seo](https://github.com/ralphjsmit/laravel-seo) package** with [Filament Admin and Forms](https://filamentphp.com).
+
+It provides a simple component that returns a Filament fieldgroup to modify the `title`, `author` and `description` fields of the SEO model. It automatically **takes care of getting and saving all the data** to the `seo()` relationship, and you can thus use it anywhere, **without additional configuration!**
 
 ```php
 use Filament\Resources\Form;
@@ -17,6 +19,10 @@ public static function form(Form $form): Form
 }
 ```
 
+Here's an example of how the `SEO` component looks like:
+
+![Using the Laravel Filament SEO component](https://github.com/ralphjsmit/laravel-filament-seo/blob/main/docs/images/card.png)
+
 ## Installation
 
 First, install the packages:
@@ -25,9 +31,9 @@ First, install the packages:
 composer require ralphjsmit/laravel-filament-seo
 ```
 
-This will the require the `ralphjsmit/laravel-seo` as well if you didn't have that installed.
+This will the require the `ralphjsmit/laravel-seo` as well if you didn't have that installed. Be sure to [check out the documentation of the main package](https://github.com/ralphjsmit/laravel-seo) and configure the values in the special `seo.php` config file!
 
-Next, make sure that the Eloquent Model you're editing makes use of the `HasSEO` trait:
+Next, make sure that the **Eloquent Model** you're editing **uses the `HasSEO` trait**:
 
 ```php
 class Post extends Model
@@ -36,11 +42,13 @@ class Post extends Model
 }
 ```
 
-Now the `SEO::make()` helper is available to use anywhere you want. Below are several examples how to use it:
+Now the **`SEO::make()` helper is available to use anywhere** you want. Below are several examples how to use it:
 
 ### In Filament Admin
 
-This is an example of using this package in the classic [Filament Admin](https://filamentphp.com/docs/2.x/admin/installation). It works for both creating and editing posts:
+This is an example of **using this package in the classic [Filament Admin](https://filamentphp.com/docs/2.x/admin/installation)**.
+
+It works for **both creating and editing posts**:
 
 ```php
 <?php
@@ -95,9 +103,9 @@ class PostResource extends Resource
 
 ### With Filament Forms
 
-You can also use this package with the stand-alone [Filament Forms](https://filamentphp.com/docs/2.x/forms/installation) package.
+You can also **use this package with the stand-alone [Filament Forms](https://filamentphp.com/docs/2.x/forms/installation)** package.
 
-This is a simple example of how a Livewire component to create a new post can look like:
+This is a simple example of **how to setup a Livewire component that creates a new post**. In this example, I wrapped the `SEO` component in a Card.
 
 ```php
 <?php
@@ -105,6 +113,7 @@ This is a simple example of how a Livewire component to create a new post can lo
 namespace App\Http\Livewire;
 
 use App\Models\Post;
+use Filament\Forms\Components\Card;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
@@ -133,7 +142,9 @@ class CreatePost extends Component implements HasForms
     {
         return [
             TextInput::make('title'),
-            static::$SEOParameters ? SEO::make(static::$SEOParameters) : SEO::make(),
+            Card::make([
+                SEO::make()
+            ]),
         ];
     }
 
@@ -157,7 +168,7 @@ class CreatePost extends Component implements HasForms
 }
 ```
 
-And here's an example of how editing a Post might like like:
+And here's an example of how a **Livewire component for editing a post** might like like:
 
 ```php
 <?php
@@ -213,6 +224,16 @@ class EditPost extends Component implements HasForms
     }
 }
 ```
+
+## General
+
+🐞 If you spot a bug, please submit a detailed issue and I'll try to fix it as soon as possible.
+
+🔐 If you discover a vulnerability, please review [our security policy](../../security/policy).
+
+🙌 If you want to contribute, please submit a pull request. All PRs will be fully credited. If you're unsure whether I'd accept your idea, feel free to contact me!
+
+🙋‍♂️ [Ralph J. Smit](https://ralphjsmit.com)
 
 
 
