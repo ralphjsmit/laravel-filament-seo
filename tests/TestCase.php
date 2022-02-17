@@ -37,7 +37,7 @@ class TestCase extends Orchestra
 
         View::addLocation(__DIR__ . '/Fixtures/resources/views');
 
-        ( include __DIR__ . '/Fixtures/migrations/create_test_tables.php' )->up();
-        ( include __DIR__ . '/../vendor/ralphjsmit/laravel-seo/database/migrations/create_seo_table.php.stub' )->up();
+        (include __DIR__ . '/Fixtures/migrations/create_test_tables.php')->up();
+        (include __DIR__ . '/../vendor/ralphjsmit/laravel-seo/database/migrations/create_seo_table.php.stub')->up();
     }
 }
