@@ -11,9 +11,6 @@ class FilamentSEOServiceProvider extends PackageServiceProvider
     {
         $package
             ->name('laravel-filament-seo')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasTranslations()
-            ->hasMigration('create_laravel-filament-seo_table');
+            ->hasTranslations();
     }
 }

@@ -4,35 +4,38 @@ namespace RalphJSmit\Filament\SEO;
 
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Model;
-use RalphJSmit\Filament\SEO\Components\TextInput;
+use Illuminate\Support\Arr;
 
 class SEO
 {
-    public static function make(): array
+    public static function make(array $only = ['title', 'author', 'description']): Group
     {
-        return [
-            Group::make([
-                TextInput::make('title')
+        return Group::make(
+            Arr::only([
+                'title' => TextInput::make('title')
                     ->label(tr('title'))
                     ->columnSpan(2),
-                TextInput::make('author')
+                'author' => TextInput::make('author')
                     ->label(tr('author'))
                     ->columnSpan(2),
-                Textarea::make('description')
+                'description' => Textarea::make('description')
                     ->label(tr('description'))
                     ->columnSpan(2),
-            ])
-                ->afterStateHydrated(function (Group $component, ?Model $record): void {
-                    $component->getChildComponentContainer()->fill(
-                        $record?->seo->only(['title', 'description', 'author']) ?? []
-                    );
-                })
-                ->statePath('seo')
-                ->dehydrated(false)
-                ->saveRelationshipsUsing(function (Model $record, array $state): void {
-                    $record->seo->update($state);
-                }),
-        ];
+            ], $only)
+        )
+            ->afterStateHydrated(function (Group $component, ?Model $record) use ($only): void {
+                $component->getChildComponentContainer()->fill(
+                    $record?->seo->only($only) ?? []
+                );
+            })
+            ->statePath('seo')
+            ->dehydrated(false)
+            ->saveRelationshipsUsing(function (Model $record, array $state) use ($only): void {
+                $record->seo->update(
+                    collect($state)->only($only)->map(fn ($value) => $value ?: null)->all()
+                );
+            });
     }
 }

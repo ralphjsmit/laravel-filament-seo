@@ -11,22 +11,24 @@ use Livewire\Component;
 use RalphJSmit\Filament\SEO\SEO;
 use RalphJSmit\Filament\SEO\Tests\Fixtures\Models\Post;
 
-class CreatePost extends Component implements HasForms
+class EditPost extends Component implements HasForms
 {
     use InteractsWithForms;
 
     public static $SEOParameters = [];
 
-    public array $data = [];
+    public Post $post;
 
     public function mount(): void
     {
-        $this->form->fill();
+        $this->form->fill([
+            'title' => $this->post->title,
+        ]);
     }
 
     public function render(): View
     {
-        return view('livewire.create-post');
+        return view('livewire.edit-post');
     }
 
     protected function getFormSchema(): array
@@ -37,20 +39,15 @@ class CreatePost extends Component implements HasForms
         ];
     }
 
-    protected function getFormStatePath(): ?string
-    {
-        return 'data';
-    }
-
     protected function getFormModel(): Model|string|null
     {
-        return Post::class;
+        return $this->post;
     }
 
     public function submitForm()
     {
-        $post = Post::create($this->form->getState());
-
-        $this->form->model($post)->saveRelationships();
+        $this->post->update(
+            $this->form->getState(),
+        );
     }
 }
