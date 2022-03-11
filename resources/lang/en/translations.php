@@ -5,4 +5,5 @@ return [
     'description' => 'Description',
     'author-name' => 'Author Name',
     'image' => 'Image',
+    'characters' => 'Characters',
 ];

@@ -7,6 +7,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 
 class SEO
 {
@@ -22,6 +23,14 @@ class SEO
                     ->columnSpan(2),
                 'description' => Textarea::make('description')
                     ->label(tr('description'))
+                    ->helperText(function (?string $state): string {
+                        return Str::of(strlen($state))
+                            ->append(' / ')
+                            ->append(160 . ' ')
+                            ->append(tr('characters')->lower())
+                            ->value();
+                    })
+                    ->reactive()
                     ->columnSpan(2),
             ], $only)
         )
