@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-filament-seo` will be documented in this file.
 
+## 0.3.0 - 2022-03-11
+
+- Add character counter to description
+
 ## 0.2.0 - 2022-03-10
 
 - Bump version.
