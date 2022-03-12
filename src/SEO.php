@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
+use function RalphJSmit\Filament\SEO\Support\tr;
+
 class SEO
 {
     public static function make(array $only = ['title', 'author', 'description']): Group
