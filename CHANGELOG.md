@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-filament-seo` will be documented in this file.
 
+## 0.4.1 - 2022-03-16
+
+- Update dependencies
+
 ## 0.4.0 - 2022-03-12
 
 - Namespace `tr()` function
