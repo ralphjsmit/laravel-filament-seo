@@ -9,8 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
-use function RalphJSmit\Filament\SEO\Support\tr;
-
 class SEO
 {
     public static function make(array $only = ['title', 'author', 'description']): Group
@@ -18,18 +16,18 @@ class SEO
         return Group::make(
             Arr::only([
                 'title' => TextInput::make('title')
-                    ->label(tr('title'))
+                    ->label(__('filament-seo::translations.title'))
                     ->columnSpan(2),
                 'author' => TextInput::make('author')
-                    ->label(tr('author'))
+                    ->label(__('filament-seo::translations.author'))
                     ->columnSpan(2),
                 'description' => Textarea::make('description')
-                    ->label(tr('description'))
+                    ->label(__('filament-seo::translations.description'))
                     ->helperText(function (?string $state): string {
                         return Str::of(strlen($state))
                             ->append(' / ')
                             ->append(160 . ' ')
-                            ->append(tr('characters')->lower())
+                            ->append(Str::of(__('filament-seo::translations.characters'))->lower())
                             ->value();
                     })
                     ->reactive()
