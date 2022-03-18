@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-filament-seo` will be documented in this file.
 
+## 0.5.0 - 2022-03-18
+
+- Remove custom translation helper.
+
 ## 0.4.1 - 2022-03-16
 
 - Update dependencies
