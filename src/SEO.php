@@ -36,13 +36,13 @@ class SEO
         )
             ->afterStateHydrated(function (Group $component, ?Model $record) use ($only): void {
                 $component->getChildComponentContainer()->fill(
-                    $record?->seo->only($only) ?? []
+                    $record?->seo?->only($only) ?: []
                 );
             })
             ->statePath('seo')
             ->dehydrated(false)
             ->saveRelationshipsUsing(function (Model $record, array $state) use ($only): void {
-                $record->seo->update(
+                $record->seo()->updateOrCreate(
                     collect($state)->only($only)->map(fn ($value) => $value ?: null)->all()
                 );
             });

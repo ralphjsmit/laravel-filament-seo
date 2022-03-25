@@ -17,6 +17,8 @@ class EditPost extends Component implements HasForms
 
     public static $SEOParameters = [];
 
+    public array $data = [];
+
     public Post $post;
 
     public function mount(): void
@@ -31,17 +33,22 @@ class EditPost extends Component implements HasForms
         return view('livewire.edit-post');
     }
 
+    protected function getFormModel(): Model|string|null
+    {
+        return $this->post;
+    }
+
     protected function getFormSchema(): array
     {
         return [
-            TextInput::make('title'),
+            TextInput::make('title')->required(),
             static::$SEOParameters ? SEO::make(static::$SEOParameters) : SEO::make(),
         ];
     }
 
-    protected function getFormModel(): Model|string|null
+    protected function getFormStatePath(): ?string
     {
-        return $this->post;
+        return 'data';
     }
 
     public function submitForm()
