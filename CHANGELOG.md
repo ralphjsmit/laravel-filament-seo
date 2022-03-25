@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-filament-seo` will be documented in this file.
 
+## 0.6.0 - 2022-03-25
+
+- Fix author translation
+- Update behaviour on save: model is created if it did not yet exist.
+
 ## 0.5.0 - 2022-03-18
 
 - Remove custom translation helper.
