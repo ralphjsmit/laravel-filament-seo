@@ -3,7 +3,7 @@
 return [
     'title' => 'Title',
     'description' => 'Description',
-    'author' => 'Author Name',
+    'author' => 'Author name',
     'image' => 'Image',
     'characters' => 'Characters',
 ];
