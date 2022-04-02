@@ -1,12 +1,12 @@
 <?php
 
-use RalphJSmit\Filament\SEO\Tests\Fixtures\Http\Livewire\CreatePost;
-use RalphJSmit\Filament\SEO\Tests\Fixtures\Http\Livewire\EditPost;
-use RalphJSmit\Filament\SEO\Tests\Fixtures\Models\Post;
-use RalphJSmit\Laravel\SEO\Models\SEO;
-
 use function Pest\Laravel\assertDatabaseCount;
 use function Pest\Laravel\assertDatabaseHas;
+use RalphJSmit\Filament\SEO\Tests\Fixtures\Http\Livewire\CreatePost;
+use RalphJSmit\Filament\SEO\Tests\Fixtures\Http\Livewire\EditPost;
+
+use RalphJSmit\Filament\SEO\Tests\Fixtures\Models\Post;
+use RalphJSmit\Laravel\SEO\Models\SEO;
 
 it('can create a post with seo', function () {
     $livewire = Livewire\Livewire::test(CreatePost::class);
