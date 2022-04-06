@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-filament-seo` will be documented in this file.
 
+## 0.6.1 - 2022-04-02
+
+- Update author translation
+
 ## 0.6.0 - 2022-03-25
 
 - Fix author translation
