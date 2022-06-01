@@ -44,7 +44,7 @@ class SEO
             ->saveRelationshipsUsing(function (Model $record, array $state) use ($only): void {
                 $state = collect($state)->only($only)->map(fn ($value) => $value ?: null)->all();
 
-                if ( $seo = $record->seo ) {
+                if ($seo = $record->seo) {
                     $seo->update($state);
                 } else {
                     $record->seo()->create($state);
