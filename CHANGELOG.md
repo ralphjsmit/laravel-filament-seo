@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-filament-seo` will be documented in this file.
 
+## 1.0.1 - 2022-06-01
+
+– Fix tests.
+
 ## 0.7.0 - 2022-04-15
 
 - Dynamic SEO model.
