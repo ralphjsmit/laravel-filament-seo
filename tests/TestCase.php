@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\View;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 use RalphJSmit\Filament\SEO\FilamentSEOServiceProvider;
+use RalphJSmit\Laravel\SEO\LaravelSEOServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -24,10 +25,11 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            FilamentSEOServiceProvider::class,
             LivewireServiceProvider::class,
             FilamentServiceProvider::class,
             FormsServiceProvider::class,
+            LaravelSEOServiceProvider::class,
+            FilamentSEOServiceProvider::class,
         ];
     }
 
