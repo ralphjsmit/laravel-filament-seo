@@ -24,11 +24,10 @@ class SEO
                 'description' => Textarea::make('description')
                     ->label(__('filament-seo::translations.description'))
                     ->helperText(function (?string $state): string {
-                        return Str::of(strlen($state))
+                        return (string) Str::of(strlen($state))
                             ->append(' / ')
                             ->append(160 . ' ')
-                            ->append(Str::of(__('filament-seo::translations.characters'))->lower())
-                            ->value();
+                            ->append(Str::of(__('filament-seo::translations.characters'))->lower());
                     })
                     ->reactive()
                     ->columnSpan(2),
@@ -44,7 +43,7 @@ class SEO
             ->saveRelationshipsUsing(function (Model $record, array $state) use ($only): void {
                 $state = collect($state)->only($only)->map(fn ($value) => $value ?: null)->all();
 
-                if ($seo = $record->seo) {
+                if ( $seo = $record->seo ) {
                     $seo->update($state);
                 } else {
                     $record->seo()->create($state);
