@@ -4,6 +4,7 @@ namespace RalphJSmit\Filament\SEO\Tests;
 
 use Filament\FilamentServiceProvider;
 use Filament\Forms\FormsServiceProvider;
+use Filament\Support\SupportServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\View;
 use Livewire\LivewireServiceProvider;
@@ -17,9 +18,7 @@ class TestCase extends Orchestra
     {
         parent::setUp();
 
-        Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'RalphJSmit\\Filament\\SEO\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
-        );
+        Factory::guessFactoryNamesUsing(fn (string $modelName) => 'RalphJSmit\\Filament\\SEO\\Database\\Factories\\' . class_basename($modelName) . 'Factory');
     }
 
     protected function getPackageProviders($app)
@@ -30,6 +29,7 @@ class TestCase extends Orchestra
             FormsServiceProvider::class,
             LaravelSEOServiceProvider::class,
             FilamentSEOServiceProvider::class,
+            SupportServiceProvider::class,
         ];
     }
 
