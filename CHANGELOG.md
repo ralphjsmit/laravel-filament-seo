@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-filament-seo` will be documented in this file.
 
+## 1.2.0 - 2023-07-20
+
+- Add Filament V3 support
+
 ## 1.1 - 2023-02-17
 
 - Add Laravel 10 support in #12
