@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-filament-seo` will be documented in this file.
 
+## 1.2.1 - 2023-08-23
+
+- Allow labels to be translatable.
+
 ## 1.2.0 - 2023-07-20
 
 - Add Filament V3 support
