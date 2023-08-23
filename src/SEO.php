@@ -15,13 +15,16 @@ class SEO
     {
         return Group::make(
             Arr::only([
-                'title' => TextInput::make('title')->translateLabel()
+                'title' => TextInput::make('title')
+                    ->translateLabel()
                     ->label(__('filament-seo::translations.title'))
                     ->columnSpan(2),
-                'author' => TextInput::make('author')->translateLabel()
+                'author' => TextInput::make('author')
+                    ->translateLabel()
                     ->label(__('filament-seo::translations.author'))
                     ->columnSpan(2),
-                'description' => Textarea::make('description')->translateLabel()
+                'description' => Textarea::make('description')
+                    ->translateLabel()
                     ->label(__('filament-seo::translations.description'))
                     ->helperText(function (?string $state): string {
                         return (string) Str::of(strlen($state))
