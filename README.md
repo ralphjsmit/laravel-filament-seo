@@ -21,7 +21,7 @@ public static function form(Form $form): Form
 
 Here's an example of how the `SEO` component looks like:
 
-![Using the Laravel Filament SEO component](https://github.com/ralphjsmit/laravel-filament-seo/blob/main/docs/images/card.png)
+![Using the Laravel Filament SEO component](https://raw.githubusercontent.com/ralphjsmit/laravel-filament-seo/main/docs/images/card.png)
 
 ## Installation
 
