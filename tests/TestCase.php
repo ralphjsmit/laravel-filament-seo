@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\View;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
@@ -17,7 +18,7 @@ use RalphJSmit\Laravel\SEO\LaravelSEOServiceProvider;
 
 class TestCase extends Orchestra
 {
-	use DatabaseTransactions;
+	use RefreshDatabase;
 	
     protected function setUp(): void
     {
