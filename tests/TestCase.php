@@ -48,7 +48,7 @@ class TestCase extends Orchestra
 	
 	protected function getEnvironmentSetUp($app): void
 	{
-		if ( version_compare(Application::VERSION, '11', '>=') ) {
+		if ( version_compare(Application::VERSION, '11', '<') ) {
 			config()->set('database.default', 'testing');
 			
 			(include __DIR__ . '/Fixtures/migrations/create_test_tables.php')->up();
