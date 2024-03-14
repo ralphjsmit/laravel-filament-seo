@@ -24,11 +24,11 @@ class TestCase extends Orchestra
 		
 		Factory::guessFactoryNamesUsing(fn(string $modelName) => 'RalphJSmit\\Filament\\SEO\\Database\\Factories\\' . class_basename($modelName) . 'Factory');
 		
+		View::addLocation(__DIR__ . '/Fixtures/resources/views');
+		
 		// Laravel 11 changed the way database migrations are loaded and removed the Doctrine DBAL dependency.
 		// That behaviour broke the previous way of running tests using `getEnvironmentSetUp()`.
 		if ( version_compare(Application::VERSION, '11', '>=') ) {
-			View::addLocation(__DIR__ . '/Fixtures/resources/views');
-			
 			(include __DIR__ . '/Fixtures/migrations/create_test_tables.php')->up();
 			(include __DIR__ . '/../vendor/ralphjsmit/laravel-seo/database/migrations/create_seo_table.php.stub')->up();
 		}
@@ -49,6 +49,8 @@ class TestCase extends Orchestra
 	protected function getEnvironmentSetUp($app): void
 	{
 		if ( version_compare(Application::VERSION, '11', '>=') ) {
+			config()->set('database.default', 'testing');
+			
 			(include __DIR__ . '/Fixtures/migrations/create_test_tables.php')->up();
 			(include __DIR__ . '/../vendor/ralphjsmit/laravel-seo/database/migrations/create_seo_table.php.stub')->up();
 		}
