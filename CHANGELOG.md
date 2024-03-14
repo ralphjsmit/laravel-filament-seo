@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-filament-seo` will be documented in this file.
 
+## 1.3.0 - 2024-03-14
+
+- Laravel 11 Compatibility.
+
 ## 1.2.1 - 2023-08-23
 
 - Allow labels to be translatable.
