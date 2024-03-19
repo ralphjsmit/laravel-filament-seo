@@ -42,7 +42,7 @@ class CreatePost extends Component implements HasForms
         return 'data';
     }
 
-    protected function getFormModel(): Model|string|null
+    protected function getFormModel(): Model | string | null
     {
         return Post::class;
     }
