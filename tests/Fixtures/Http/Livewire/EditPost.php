@@ -33,7 +33,7 @@ class EditPost extends Component implements HasForms
         return view('livewire.edit-post');
     }
 
-    protected function getFormModel(): Model|string|null
+    protected function getFormModel(): Model | string | null
     {
         return $this->post;
     }
