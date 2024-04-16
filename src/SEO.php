@@ -18,6 +18,13 @@ class SEO
                 'title' => TextInput::make('title')
                     ->translateLabel()
                     ->label(__('filament-seo::translations.title'))
+                    ->helperText(function (?string $state): string {
+                        return (string) Str::of(strlen($state))
+                            ->append(' / ')
+                            ->append(60 . ' ')
+                            ->append(Str::of(__('filament-seo::translations.characters'))->lower());
+                    })
+                    ->reactive()
                     ->columnSpan(2),
                 'author' => TextInput::make('author')
                     ->translateLabel()
