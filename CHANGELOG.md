@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-filament-seo` will be documented in this file.
 
+## 1.3.1 - 2024-04-16
+
+- #26
+
 ## 1.3.0 - 2024-03-14
 
 - Laravel 11 Compatibility.
