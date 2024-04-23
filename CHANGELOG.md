@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-filament-seo` will be documented in this file.
 
+## 1.3.2 - 2024-04-23
+
+- French translations in #28.
+
 ## 1.3.1 - 2024-04-16
 
 - #26
