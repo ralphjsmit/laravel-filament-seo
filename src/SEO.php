@@ -5,13 +5,14 @@ namespace RalphJSmit\Filament\SEO;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Select;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
 class SEO
 {
-    public static function make(array $only = ['title', 'author', 'description']): Group
+    public static function make(array $only = ['title', 'author', 'description', 'robots']): Group
     {
         return Group::make(
             Arr::only([
@@ -41,6 +42,15 @@ class SEO
                     })
                     ->reactive()
                     ->columnSpan(2),
+                'robots' => Select::make('robots')
+                    ->label(__('filament-seo::translations.robots'))
+                    ->options([
+                        'index, follow' => 'Index, Follow',
+                        'index, nofollow' => 'Index, Nofollow',
+                        'noindex, follow' => 'Noindex, Follow',
+                        'noindex, nofollow' => 'Noindex, Nofollow',
+                    ]),
+
             ], $only)
         )
             ->afterStateHydrated(function (Group $component, ?Model $record) use ($only): void {
