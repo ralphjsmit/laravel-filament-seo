@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-filament-seo` will be documented in this file.
 
+## 1.4.0 - 2024-08-30
+
+- Feat: ability to manage robots tag from UI.
+
 ## 1.3.2 - 2024-04-23
 
 - French translations in #28.
