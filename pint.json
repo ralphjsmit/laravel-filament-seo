@@ -14,6 +14,10 @@
         "ordered_traits": true,
         "types_spaces": {
             "space": "single"
+        },
+        "new_with_parentheses": {
+            "anonymous_class": false,
+            "named_class": true
         }
     }
 }
