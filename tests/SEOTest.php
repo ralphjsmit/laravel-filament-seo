@@ -16,6 +16,7 @@ it('can create a post with seo', function () {
         ->set('data.seo.title', 'Hello World – Google')
         ->set('data.seo.description', 'Description – Google')
         ->set('data.seo.author', 'Author – Google')
+        ->set('data.seo.robots', 'noindex, nofollow')
         ->call('submitForm')
         ->assertHasNoErrors();
 
@@ -27,6 +28,7 @@ it('can create a post with seo', function () {
         'title' => e('Hello World – Google'),
         'description' => e('Description – Google'),
         'author' => e('Author – Google'),
+        'robots' => 'noindex, nofollow',
     ]);
 });
 
@@ -48,6 +50,7 @@ it('can update a post without a seo model', function () {
         ->set('data.seo.title', 'Hello World – Google')
         ->set('data.seo.description', 'Description – Google')
         ->set('data.seo.author', 'Author – Google')
+        ->set('data.seo.robots', 'noindex, nofollow')
         ->call('submitForm')
         ->assertHasNoErrors();
 
@@ -59,6 +62,7 @@ it('can update a post without a seo model', function () {
         'title' => e('Hello World – Google'),
         'description' => e('Description – Google'),
         'author' => e('Author – Google'),
+        'robots' => 'noindex, nofollow',
     ]);
 });
 
@@ -71,6 +75,7 @@ it('can update the post with seo', function () {
         'title' => 'Hello World – Google',
         'description' => 'Description – Google',
         'author' => 'Author – Google',
+        'robots' => 'noindex, nofollow',
     ]);
 
     EditPost::$SEOParameters = [];
@@ -85,9 +90,11 @@ it('can update the post with seo', function () {
         ->assertSet('data.seo.title', 'Hello World – Google')
         ->assertSet('data.seo.description', 'Description – Google')
         ->assertSet('data.seo.author', 'Author – Google')
+        ->assertSet('data.seo.robots', 'noindex, nofollow')
         ->set('data.seo.title', 'Hello World #2 – Google')
         ->set('data.seo.description', '')
         ->set('data.seo.author', 'Author #2 – Google')
+        ->set('data.seo.robots', 'index, follow')
         ->call('submitForm')
         ->assertHasNoErrors();
 
@@ -101,6 +108,7 @@ it('can update the post with seo', function () {
         'title' => e('Hello World #2 – Google'),
         'description' => null,
         'author' => e('Author #2 – Google'),
+        'robots' => 'index, follow',
     ]);
 });
 
@@ -127,6 +135,7 @@ it('can update the post with seo and not all fields', function () {
         ->set('data.seo.title', 'Hello World #3 – Google')
         ->set('data.seo.description', 'Test #4')
         ->set('data.seo.author', 'Author #3 – Google')
+        ->set('data.seo.robots', 'noindex, nofollow')
         ->call('submitForm')
         ->assertHasNoErrors();
 
@@ -140,5 +149,6 @@ it('can update the post with seo and not all fields', function () {
         'title' => e('Hello World #3 – Google'),
         'description' => e('Test #4'),
         'author' => e('Author #3 – Google'),
+        'robots' => 'noindex, nofollow',
     ]);
 });

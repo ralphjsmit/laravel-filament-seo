@@ -6,4 +6,5 @@ return [
     'author' => 'Author name',
     'image' => 'Image',
     'characters' => 'Characters',
+    'robots' => 'Meta Tag Robots',
 ];
