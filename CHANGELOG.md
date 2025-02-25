@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-filament-seo` will be documented in this file.
 
+## 1.5.0 - 2025-02-25
+
+- Feat: Laravel 12 support
+
 ## 1.4.1 - 2025-01-28
 
 - Feat: add Arabic translations in #35 by @A909M.
