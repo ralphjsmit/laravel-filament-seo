@@ -7,4 +7,5 @@ return [
     'image' => 'Görsel',
     'characters' => 'Karakter',
     'robots' => 'Robot meta etiketi',
+    'form_section_description' => 'Arama Motoru Optimizasyonu ayarları',
 ];
