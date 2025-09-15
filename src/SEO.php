@@ -14,7 +14,9 @@ class SEO
 {
     public static function make(array $only = ['title', 'author', 'description', 'robots']): Section
     {
-        return Section::make(
+        return Section::make("SEO")
+        ->description(__('filament-seo::translations.form_section_description'))
+        ->schema(
             Arr::only([
                 'title' => TextInput::make('title')
                     ->translateLabel()

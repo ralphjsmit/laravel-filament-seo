@@ -7,4 +7,5 @@ return [
     'image' => 'Image',
     'characters' => 'Characters',
     'robots' => 'Meta Tag Robots',
+    'form_section_description' => 'Search Engine Optimization settings',
 ];
