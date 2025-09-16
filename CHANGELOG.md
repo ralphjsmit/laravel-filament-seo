@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-filament-seo` will be documented in this file.
 
+## 2.0.0 - 2025-09-16
+
+- Feat: Filament V4 support by @vedatyilmaz and @ralphjsmit
+- Turkish translations by @vedatyilmaz
+
 ## 1.5.0 - 2025-02-25
 
 - Feat: Laravel 12 support
