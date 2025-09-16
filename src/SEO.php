@@ -2,19 +2,19 @@
 
 namespace RalphJSmit\Filament\SEO;
 
-use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Group;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
 class SEO
 {
-    public static function make(array $only = ['title', 'author', 'description', 'robots']): Section
+    public static function make(array $only = ['title', 'author', 'description', 'robots']): Group
     {
-        return Section::make(
+        return Group::make(
             Arr::only([
                 'title' => TextInput::make('title')
                     ->translateLabel()
@@ -53,8 +53,8 @@ class SEO
 
             ], $only)
         )
-            ->afterStateHydrated(function (Section $component, ?Model $record) use ($only): void {
-                $component->getChildComponentContainer()->fill(
+            ->afterStateHydrated(function (Group $component, ?Model $record) use ($only): void {
+                $component->getChildSchema()->fill(
                     $record?->seo?->only($only) ?: []
                 );
             })
