@@ -4,6 +4,7 @@ namespace RalphJSmit\Filament\SEO\Tests;
 
 use Filament\FilamentServiceProvider;
 use Filament\Forms\FormsServiceProvider;
+use Filament\Schemas\SchemasServiceProvider;
 use Filament\Support\SupportServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Foundation\Application;
@@ -37,12 +38,13 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app): array
     {
         return [
-            LivewireServiceProvider::class,
+            SupportServiceProvider::class,
+            SchemasServiceProvider::class,
+            LaravelSEOServiceProvider::class,
             FilamentServiceProvider::class,
             FormsServiceProvider::class,
-            LaravelSEOServiceProvider::class,
             FilamentSEOServiceProvider::class,
-            SupportServiceProvider::class,
+            LivewireServiceProvider::class,
         ];
     }
 
