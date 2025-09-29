@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-filament-seo` will be documented in this file.
 
+## 2.0.1 - 2025-09-29
+
+- Feat: add Spanish translations
+
 ## 2.0.0 - 2025-09-16
 
 - Feat: Filament V4 support by @vedatyilmaz and @ralphjsmit
