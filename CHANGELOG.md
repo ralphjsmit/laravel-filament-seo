@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-filament-seo` will be documented in this file.
 
+## 2.2.2 - 2026-11-03
+
+- Chore: improve package health in #56
+
 ## 2.2.1 - 2026-09-11
 
 - Feat: Italian translations by @MarioGattolla
