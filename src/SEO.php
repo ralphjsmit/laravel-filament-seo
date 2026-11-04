@@ -20,7 +20,7 @@ class SEO
                     ->translateLabel()
                     ->label(__('filament-seo::translations.title'))
                     ->helperText(function (?string $state): string {
-                        return (string) Str::of(strlen($state))
+                        return (string) Str::of(Str::length($state ?? ''))
                             ->append(' / ')
                             ->append(60 . ' ')
                             ->append(Str::of(__('filament-seo::translations.characters'))->lower());
@@ -35,7 +35,7 @@ class SEO
                     ->translateLabel()
                     ->label(__('filament-seo::translations.description'))
                     ->helperText(function (?string $state): string {
-                        return (string) Str::of(strlen($state))
+                        return (string) Str::of(Str::length($state ?? ''))
                             ->append(' / ')
                             ->append(160 . ' ')
                             ->append(Str::of(__('filament-seo::translations.characters'))->lower());

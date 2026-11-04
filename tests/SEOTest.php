@@ -152,3 +152,21 @@ it('can update the post with seo and not all fields', function () {
         'robots' => 'noindex, nofollow',
     ]);
 });
+
+it('renders the character count helper text for empty fields without deprecations', function () {
+    $this->withoutDeprecationHandling();
+
+    Livewire\Livewire::test(CreatePost::class)
+        ->assertSet('data.seo.title', null)
+        ->assertSet('data.seo.description', null)
+        ->assertSee('0 / 60 characters')
+        ->assertSee('0 / 160 characters');
+});
+
+it('counts multibyte characters in the character count helper text', function () {
+    Livewire\Livewire::test(CreatePost::class)
+        ->set('data.seo.title', 'Café')
+        ->set('data.seo.description', 'Café')
+        ->assertSee('4 / 60 characters')
+        ->assertSee('4 / 160 characters');
+});
